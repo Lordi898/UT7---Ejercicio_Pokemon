@@ -1,4 +1,5 @@
 package UT7Ejer4BatallaPokemon_V1;
 
-public class Agua {
+public interface Agua {
+    double aplicarResistencia(Pokemon agresor);
 }

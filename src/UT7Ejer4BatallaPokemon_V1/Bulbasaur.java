@@ -1,12 +1,12 @@
 package UT7Ejer4BatallaPokemon_V1;
 
-public class Charmander implements Pokemon, Fuego {
+public class Bulbasaur implements Pokemon, Planta {
     private String nombre;
     private int vida;
     private int ataque;
 
-    public Charmander() {
-        this.nombre = "Charmander";
+    public Bulbasaur() {
+        this.nombre = "Bulbasaur";
         this.vida = 100;
         this.ataque = 20;
     }
@@ -21,8 +21,8 @@ public class Charmander implements Pokemon, Fuego {
     public void recibirAtaque(Pokemon agresor) {
         int baseDamage = this.ataque;
         double factor = 1.0;
-        // Si el agresor no es de tipo Fuego, se invoca la resistencia
-        if (!(agresor instanceof Fuego)) {
+        // Si el agresor no es de tipo Planta, se invoca la resistencia
+        if (!(agresor instanceof Planta)) {
             factor = aplicarResistencia(agresor);
         }
         int damageRecibido = (int)(baseDamage * factor);
@@ -31,12 +31,12 @@ public class Charmander implements Pokemon, Fuego {
     }
 
     /**
-     * Un Pokémon Fuego (Charmander) recibe la mitad del daño si es atacado por un Pokémon Planta.
+     * Un Pokémon Planta (Bulbasaur) recibe la mitad del daño si es atacado por un Pokémon Agua.
      */
     @Override
     public double aplicarResistencia(Pokemon agresor) {
-        if (agresor instanceof Planta) {
-            System.out.println(this.nombre + " aplica resistencia (ataque de Planta): daño reducido a la mitad.");
+        if (agresor instanceof Agua) {
+            System.out.println(this.nombre + " aplica resistencia (ataque de Agua): daño reducido a la mitad.");
             return 0.5;
         }
         return 1.0;
